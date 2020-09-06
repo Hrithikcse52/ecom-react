@@ -113,10 +113,6 @@ const Signin = () => {
         <h1>helllo</h1>
         <h1>helllo</h1>
         <h1>helllo</h1>
-        <h1>helllo</h1>
-        <h1>helllo</h1>
-        <h1>helllo</h1>
-        <h1>helllo</h1>
       </Base>
     </div>
   );
