@@ -37,11 +37,10 @@ const Signin = () => {
 
   const performRedirect = () => {
     if (didRedirect) {
-      // console.log(user);
       if (user && user.role === 1) {
-        return <p>Redirect Admin</p>;
+        return <Redirect to="/admin/dashboard" />;
       } else {
-        return <p>Redirect User</p>;
+        return <Redirect to="/user/dashboard" />;
       }
     }
     if (isAuthenticate()) {
@@ -105,14 +104,14 @@ const Signin = () => {
         {SigninTemplate()}
         {performRedirect()}
         <p className="text-white text-center">{JSON.stringify(values)}</p>
-        <h1>helllo</h1>
-        <h1>helllo</h1>
-        <h1>helllo</h1>
-        <h1>helllo</h1>
-        <h1>helllo</h1>
-        <h1>helllo</h1>
-        <h1>helllo</h1>
-        <h1>helllo</h1>
+        <h1 className="text-center">helllo</h1>
+        <h1 className="text-center">helllo</h1>
+        <h1 className="text-center">helllo</h1>
+        <h1 className="text-center">helllo</h1>
+        <h1 className="text-center">helllo</h1>
+        <h1 className="text-center">helllo</h1>
+        <h1 className="text-center">helllo</h1>
+        <h1 className="text-center">helllo</h1>
       </Base>
     </div>
   );

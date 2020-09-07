@@ -29,19 +29,14 @@ const Menu = ({ history }) => {
         <li className="nav-items">
           <Link
             className="nav-link"
-            style={currentTab(history, "/dashboard")}
-            to="/dashboard"
+            style={currentTab(history, "/adminpanel")}
+            to={
+              isAuthenticate() && isAuthenticate().user.role === 1
+                ? "/admin/dashboard"
+                : "/user/dashboard"
+            }
           >
             Dashboard
-          </Link>
-        </li>
-        <li className="nav-items">
-          <Link
-            className="nav-link"
-            style={currentTab(history, "/adminpanel")}
-            to="/adminpanel"
-          >
-            A. Dashboard
           </Link>
         </li>
 
