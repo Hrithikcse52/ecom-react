@@ -3,10 +3,6 @@ import Base from "../core/Base";
 import { Link } from "react-router-dom";
 import { isAuthenticate } from "../auth/helper";
 
-const {
-  user: { name, email },
-} = isAuthenticate();
-
 const AdminDashBoard = () => {
   const leftSide = () => {
     return (
@@ -40,17 +36,18 @@ const AdminDashBoard = () => {
     );
   };
   const rightSide = () => {
+    const { user } = isAuthenticate();
     return (
       <div className="card">
         <div className="card-header bg-dark text-white">Admin Information</div>
         <ul className="list-group ">
           <li className="list-group-item bg-primary">
             <span className="badge badge-success mr-2">Name:</span>
-            {name}
+            {user.name}
           </li>
           <li className="list-group-item bg-primary">
             <span className="badge badge-success mr-2">Email:</span>
-            {email}
+            {user.email}
           </li>
         </ul>
       </div>
@@ -63,8 +60,6 @@ const AdminDashBoard = () => {
         <div className="col-3">{leftSide()}</div>
         <div className="col-9">{rightSide()}</div>
       </div>
-
-      <h1>Hello Admin </h1>
     </Base>
   );
 };

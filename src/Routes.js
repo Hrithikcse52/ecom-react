@@ -9,6 +9,7 @@ import AdminDashBoard from "./user/AdminDashBoard";
 import Profile from "./user/Profile";
 import AdminRoutes from "./auth/helper/AdminRoutes";
 import PrivateRoutes from "./auth/helper/PrivateRoutes";
+import AddCategory from "./admin/AddCategory";
 
 const Routes = () => {
   return (
@@ -28,6 +29,11 @@ const Routes = () => {
             path="/admin/dashboard"
             exact
             component={AdminDashBoard}
+          />
+          <AdminRoutes
+            path="/admin/create/category"
+            exact
+            component={AddCategory}
           />
           <PrivateRoutes path="/user/profile" exact component={Profile} />
         </Switch>
