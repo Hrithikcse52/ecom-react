@@ -16,6 +16,11 @@ const AdminDashBoard = () => {
               </Link>
             </li>
             <li className="list-group-item bg-primary">
+              <Link to="/admin/categories" className="nav-link text-white">
+                Manage Category
+              </Link>
+            </li>
+            <li className="list-group-item bg-primary">
               <Link to="/admin/manage/product" className="nav-link text-white">
                 Manage Products
               </Link>

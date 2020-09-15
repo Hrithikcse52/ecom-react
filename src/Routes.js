@@ -10,6 +10,8 @@ import Profile from "./user/Profile";
 import AdminRoutes from "./auth/helper/AdminRoutes";
 import PrivateRoutes from "./auth/helper/PrivateRoutes";
 import AddCategory from "./admin/AddCategory";
+import { ManageCategories } from "./admin/ManageCategories";
+import AddProduct from "./admin/AddProduct";
 
 const Routes = () => {
   return (
@@ -35,6 +37,17 @@ const Routes = () => {
             exact
             component={AddCategory}
           />
+          <AdminRoutes
+            path="/admin/categories"
+            exact
+            component={ManageCategories}
+          />
+          <AdminRoutes
+            path="/admin/manage/product"
+            exact
+            component={AddProduct}
+          />
+
           <PrivateRoutes path="/user/profile" exact component={Profile} />
         </Switch>
       </Router>

@@ -20,19 +20,24 @@ const Signin = () => {
     setValues({ ...values, error: false, [name]: event.target.value });
   };
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
     setValues({ ...values, error: false, loading: true });
 
-    signin({ email, password })
-      .then((data) => {
-        data.error
-          ? setValues({ ...values, error: data.error, loading: false })
-          : authenticate(data, () => {
-              setValues({ ...values, didRedirect: true });
-            });
-      })
-      .catch(console.log("sign in failed ftrt"));
+    try {
+      const signCheck = await signin({ email, password });
+      console.log(signCheck);
+
+      if (signCheck.error) {
+        setValues({ ...values, error: signCheck.error, loading: false });
+      } else {
+        authenticate(signCheck, () => {
+          setValues({ ...values, didRedirect: true, loading: false });
+        });
+      }
+    } catch (error) {
+      console.log(error, "sign in failed ftrt");
+    }
   };
 
   const performRedirect = () => {
@@ -104,14 +109,6 @@ const Signin = () => {
         {SigninTemplate()}
         {performRedirect()}
         <p className="text-white text-center">{JSON.stringify(values)}</p>
-        <h1 className="text-center">helllo</h1>
-        <h1 className="text-center">helllo</h1>
-        <h1 className="text-center">helllo</h1>
-        <h1 className="text-center">helllo</h1>
-        <h1 className="text-center">helllo</h1>
-        <h1 className="text-center">helllo</h1>
-        <h1 className="text-center">helllo</h1>
-        <h1 className="text-center">helllo</h1>
       </Base>
     </div>
   );
